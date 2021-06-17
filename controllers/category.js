@@ -1,7 +1,7 @@
 module.exports.getAll = function (req, res) {
 
 }
-module.exports.getId = function (req, res) {
+module.exports.getById = function (req, res) {
 
 }
 module.exports.remove = function (req, res) {

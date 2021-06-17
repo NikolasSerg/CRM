@@ -3,7 +3,10 @@ const router = express.Router();
 const controllers = require('../controllers/category');
 
 
-router.post("/login", controllers.login);
-router.post("/register", controllers.register);
+router.get("/", controllers.getAll);
+router.get("/:id", controllers.getById);
+router.delete("/:id", controllers.remove);
+router.post("/", controllers.create);
+router.patch("/:id", controllers.update);
 
 module.exports = router;

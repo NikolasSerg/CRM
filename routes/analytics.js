@@ -3,7 +3,7 @@ const router = express.Router();
 const controllers = require('../controllers/analytics');
 
 
-router.post("/login", controllers.login);
-router.post("/register", controllers.register);
+router.get("/overview", controllers.overview);
+router.get ("/analytics", controllers.analytics);
 
 module.exports = router;
