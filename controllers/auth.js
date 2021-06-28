@@ -16,5 +16,12 @@ module.exports.register = function (req, res) {
     });
     user
         .save()
-        .then(() => console.log('user  created'))
+        .then((data) => 
+        {
+            console.log('user  created')
+            res.status(200).json({
+                email: data.email 
+            })
+               
+        })
 };
