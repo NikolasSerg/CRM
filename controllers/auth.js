@@ -1,3 +1,5 @@
+const bcrypt =  require("bcryptjs");
+
 const User = require('../models/User');
 
 module.exports.login = function (req, res) {
@@ -17,13 +19,16 @@ module.exports.register = async function (req, res) {
             message: "this email is exist"
         })
     } else {
+        var salt = bcrypt.genSaltSync(10);
+        const password  = req.body.password;
+        console.log(req.body.password, ' - req.body.password') 
         const user = new User({
           email: req.body.email,
-          password: req.body.password
+          password: bcrypt.hashSync(password, salt)
         })
         try {
           await user.save();
-          res.status(200).json(user);
+          res.status(201).json(user);
         } catch (error) {
             console.error(error);
         }
