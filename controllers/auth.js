@@ -17,7 +17,7 @@ module.exports.login = async function (req, res) {
                 {expiresIn: 60 * 60}
             );
             res.status(200).json({
-                token: token
+                token: `Barer ${token}`
             })
        } else {
            res.status(401).json({
