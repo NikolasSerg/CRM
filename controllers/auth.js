@@ -31,7 +31,6 @@ module.exports.login = async function (req, res) {
    }
 };
 
-
 module.exports.register = async function (req, res) {
     let candidate = await User.findOne({email: req.body.email})
     if(candidate) {
